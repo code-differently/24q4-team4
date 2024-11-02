@@ -6,11 +6,7 @@
 
 This project aims to address a real-world challenge by creating a scalable and maintainable software solution through Object-Oriented Programming(OOP) and S.O.L.I.D. design principles. Our focus is on building an application that promotes code reusability, effective collaboration, and adaptability to future needs.
 
-Development will be conducted in Visual Studio Code, using Git and GitHub for version control to ensure efficient team management. We will follow the full development lifecycle, from ideation to implementation, prioritizing best practices in software design and development.
-
-## Prerequisites
-
-Before starting work on our project, we have three user stories as feature requests in our assigned GitHub repo within the issues tab. These will need to be approved by the instructor, Anthony D. Mays, before we can begin coding. Our final project submission will enable the functionality described by our user stories. Once approved, we will prioritize these user stories to guide our development process and ensure we meet the project requirements effectively.
+Development will be conducted in Visual Studio Code, using Git and GitHub for version control to ensure efficient team management. We will follow the full development lifecycle, from ideation to implementation, prioritizing best practices in software design and development. Our final project submission will enable the functionality described by our user stories that can be found in the 'Issues' tab to guide our development process and ensure we meet the project requirements effectively.
 
 ## Project Requirements
 

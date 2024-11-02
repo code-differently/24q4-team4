@@ -14,7 +14,12 @@ Before starting work on our project, we have three user stories as feature reque
 
 ## The Problem
 ```
-Inefficient workflow management frequently leads to confusion, miscommunication, and project delays within teams. When tasks are scattered across multiple platforms or inadequately organized, it becomes hard to see what needs to be done and who is responsible for each task. This creates an environment ripe for bottlenecks, situations where the workflow is restricted or slowed down, causing delays and negative effects to the team's overall efficiency. Therefore, having a clear and organized workflow management system is crucial for improving teamwork and ensuring projects are finished on time.
+Inefficient workflow management frequently leads to confusion, miscommunication, and project delays within teams.
+When tasks are scattered across multiple platforms or inadequately organized, it becomes hard to see what needs
+to be done and who is responsible for each task. This creates an environment ripe for bottlenecks, situations
+where the workflow is restricted or slowed down, causing delays and negative effects to the team's overall
+efficiency. Therefore, having a clear and organized workflow management system is crucial for improving teamwork
+and ensuring projects are finished on time.
 ```
 ## The Solution
 ```
@@ -24,7 +29,7 @@ Inefficient workflow management frequently leads to confusion, miscommunication,
 ```
 ## How To Improve
 ```
-* [Discuss any planned features or improvements, showcasing your commitment to ongoing development and responsiveness to user feedback.]
+1. [Discuss any planned features or improvements, showcasing your commitment to ongoing development and responsiveness to user feedback.]
 ```
 
 ## Timeline

@@ -1,4 +1,4 @@
-# Code Differently/24Q4/Team4 Project Kanban(OOP Project)
+# Code Differently-24Q4Team4 Project Kanban(OOP Project)
 
 ### Members: Chigazo Graham, Shawn Dustmore Jr., Tommy Tran, and Zion Buchanan  
 

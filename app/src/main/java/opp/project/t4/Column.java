@@ -15,6 +15,10 @@ public Column(String title){
 public String getTitle(){
     return title;       
 }
+public void addTask(Task task){
+    taskslist.add(task);
+}
+
 public void removeTask(Task task){
 taskslist.remove(task);
 }
@@ -29,5 +33,4 @@ public String toString(){
     }
     return "Column: " +title +"\n" + taskslistStr.toString();
 }
-
 }

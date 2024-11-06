@@ -7,5 +7,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class KanbanAppTest {
+    /*
+     * Implement a custom data structure that can hold, add, remove, and update cards across the board.
+     */
     
 }

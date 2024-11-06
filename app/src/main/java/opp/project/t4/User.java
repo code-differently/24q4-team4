@@ -1,1 +1,3 @@
-lo
+public class User{
+
+}

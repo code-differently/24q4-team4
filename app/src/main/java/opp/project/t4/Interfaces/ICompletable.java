@@ -1,10 +1,9 @@
 package opp.project.t4.Interfaces;
 
 public interface ICompletable {
-     void markAsComplete();
+  void markAsComplete();
 
-     void markAsIncomplete();
+  void markAsIncomplete();
 
-     boolean isCompleted();
-
+  boolean isCompleted();
 }

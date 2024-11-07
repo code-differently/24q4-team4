@@ -34,14 +34,23 @@ Inefficient workflow management frequently leads to confusion, miscommunication,
 
 ## How To Improve
 
-1. [Discuss any planned features or improvements, showcasing your commitment to ongoing development and responsiveness to user feedback.]
+1. [Discuss any planned features or improvements showcasing your commitment to ongoing development and responsiveness to user feedback.]
+- Automated Task Prioritization
+- Time Tracking and Estimates
+- Notifications and Reminders
+- Activity Log
+- Labels and Tags
+- Analytics and Reporting
+- Custom Workflow Options
+- Integrations with Other Software
+- Improved User Interface
 
 
 ## Timeline
 
 * Submit three user stories (Due: Monday, 11/4, 5PM EST | Completed: Friday, 11/1, 5PM EST)
-* Receive approval for your user stories (Tuesday, 11/5, 1PM EST | Completed: --)
-* Finish code commits (Friday, 11/8, 1PM EST | Completed: --)
-* Give presentation (Monday, 11/11, 1PM EST | Completed: --)
+* Receive approval for your user stories (Due: Tuesday, 11/5, 1PM EST | Completed: Monday, 11/4, 2PM EST)
+* Finish code commits (Due: Friday, 11/8, 1PM EST | Completed: --)
+* Give presentation (Due: Monday, 11/11, 1PM EST | Completed: --)
 
 

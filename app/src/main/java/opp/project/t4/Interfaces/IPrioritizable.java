@@ -1,10 +1,9 @@
 package opp.project.t4.Interfaces;
 
 public interface IPrioritizable {
-    void setPriority(int level);   
+  void setPriority(int level);
 
-    int getPriority();
+  int getPriority();
 
-    void changePriority(int level);
-
+  void changePriority(int level);
 }

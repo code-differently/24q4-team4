@@ -3,9 +3,9 @@ package opp.project.t4.Interfaces;
 import opp.project.t4.User;
 
 public interface IAssignable {
-     void assignUser(User user); 
+  void assignUser(User user);
 
-     void removeUser();
+  void removeUser();
 
-     User getAssignee(); 
+  User getAssignee();
 }

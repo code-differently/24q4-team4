@@ -32,7 +32,7 @@ public class Column {
   public String toString() {
     StringBuilder taskslistStr = new StringBuilder();
     for (Task task : taskslist) {
-      taskslistStr.append(task.toString()).append("\n");
+      taskslistStr.append(task.toString());
     }
     return "Column: " + title + "\n" + taskslistStr.toString();
   }

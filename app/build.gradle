@@ -8,7 +8,7 @@
 plugins {
 	id 'application'
 	id "com.diffplug.spotless" version "7.0.0.BETA4"
- 	id 'jacoco'
+	id 'jacoco'
 }
 
 repositories {
@@ -48,44 +48,44 @@ java {
 }
 }
 jacocoTestReport {
-    dependsOn test // tests are required to run before generating the report
-    reports {
-        xml.required = true
-    }
+	dependsOn test // tests are required to run before generating the report
+	reports {
+		xml.required = true
+	}
 }
 
 jacocoTestCoverageVerification {
-    violationRules {
-        rule {
-            limit {
-                minimum = "0.9".toBigDecimal()
-            }
-        }
-    }
+	violationRules {
+		rule {
+			limit {
+				minimum = "0.9".toBigDecimal()
+			}
+		}
+	}
 }
 
 test {
-    finalizedBy jacocoTestReport // report is always generated after tests run
+	finalizedBy jacocoTestReport // report is always generated after tests run
 }
 jacocoTestReport {
-    dependsOn test // tests are required to run before generating the report
-    reports {
-        xml.required = true
-    }
+	dependsOn test // tests are required to run before generating the report
+	reports {
+		xml.required = true
+	}
 }
 
 jacocoTestCoverageVerification {
-    violationRules {
-        rule {
-            limit {
-                minimum = "0.9".toBigDecimal()
-            }
-        }
-    }
+	violationRules {
+		rule {
+			limit {
+				minimum = "0.9".toBigDecimal()
+			}
+		}
+	}
 }
 
 check {
-    dependsOn(jacocoTestCoverageVerification)
+	dependsOn(jacocoTestCoverageVerification)
 }
 
 application {

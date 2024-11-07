@@ -7,7 +7,7 @@ public class TaskBoard {
   private String boardTitle;
   private ArrayList<String> activityLog;
 
-  public void Taskboard(String boardTitle) {
+  public TaskBoard(String boardTitle) {
     this.boardTitle = boardTitle;
     this.columns = new ArrayList<>();
     this.activityLog = new ArrayList<>();
@@ -16,13 +16,17 @@ public class TaskBoard {
   public String getBoardTitle() {
     return boardTitle;
   }
-  
-  public void displayBoardTitle(){
-    System.out.println("Taskboard: " +boardTitle);
+
+  public void displayBoardTitle() {
+    System.out.println("Taskboard: " + boardTitle);
   }
 
   private void logAction(String action) {
     activityLog.add(action);
+  }
+
+  public ArrayList<Column> getColumns() {
+    return columns;
   }
 
   public void addColumn(Column column) {

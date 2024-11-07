@@ -1,6 +1,8 @@
 {
-    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.configuration.updateBuildConfiguration": "automatic",
     "cSpell.words": [
-        "Taskboard"
-    ]
+        "Taskboard",
+        "taskslist"
+    ],
+    "livePreview.defaultPreviewPath": "/app/build/reports/jacoco/test/html/index.html"
 }

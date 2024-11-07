@@ -13,6 +13,14 @@ public class TaskBoard {
     this.activityLog = new ArrayList<>();
   }
 
+  public String getBoardTitle() {
+    return boardTitle;
+  }
+  
+  public void displayBoardTitle(){
+    System.out.println("Taskboard: " +boardTitle);
+  }
+
   private void logAction(String action) {
     activityLog.add(action);
   }

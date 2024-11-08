@@ -1,15 +1,17 @@
 package opp.project.t4;
 
+import java.util.UUID;
+
 public class Task {
   private String title;
   private String description;
-  private String id;
+  private UUID id;
   // enum
   // private Priority priority;
-  private String priority;
+  private Priority priority;
 
   // constructor method
-  public Task(String title, String description, String id, String priority) {
+  public Task(String title, String description, UUID id, Priority priority) {
     this.title = title;
     this.description = description;
     this.id = id;
@@ -25,23 +27,31 @@ public class Task {
     return description;
   }
 
-  public String getId() {
+  public UUID getId() {
     return id;
   }
 
-  public String getPriority() {
+  public Priority getPriority() {
     return priority;
   }
 
-  public void setPriority(String priority) {
+  public void setPriority(Priority priority) {
     this.priority = priority;
   }
 
   @Override
   public String toString() {
-    return "Task ID: " + id + "\n" +
-           "Title: " + title + "\n" +
-           "Description: " + description + "\n" +
-           "Priority: " + priority + "\n";
+    return "Task ID: "
+        + id
+        + "\n"
+        + "Title: "
+        + title
+        + "\n"
+        + "Description: "
+        + description
+        + "\n"
+        + "Priority: "
+        + priority
+        + "\n";
   }
 }

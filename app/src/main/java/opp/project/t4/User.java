@@ -32,7 +32,7 @@ public class User {
   }
 
   public ArrayList<Task> getTaskList() {
-    return new ArrayList<>(taskList);
+    return taskList;
   }
 
   @Override

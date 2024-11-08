@@ -6,8 +6,8 @@ public class UserTaskManager {
 
   private ArrayList<User> users;
 
-  public UserTaskManager() {
-    users = new ArrayList<>();
+  public UserTaskManager(ArrayList<User> users) {
+    this.users = users;
   }
 
   public void assignMultipleTasks(User user, ArrayList<Task> tasks) {
@@ -30,8 +30,8 @@ public class UserTaskManager {
     user.getTaskList().remove(task);
   }
 
-  public void removeAllTasks(User user, ArrayList<Task> tasks) {
-    user.getTaskList().removeAll(tasks);
+  public void removeAllTasks(User user) {
+    user.getTaskList().clear();
   }
 
   public void removeTaskFromMultipleUsers(Task task, ArrayList<User> users) {

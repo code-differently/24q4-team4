@@ -3,6 +3,7 @@ package opp.project.t4;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.UUID;
+import opp.project.t4.exceptions.ColumnNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -57,7 +58,7 @@ public class TaskBoardTest {
   }
 
   @Test
-  public void testMoveTask() {
+  public void testMoveTask() throws ColumnNotFoundException {
     taskBoard.moveTask(task1, column1, column2);
     assertFalse(column1.getTasks().contains(task1), "Task should be removed from 'To Do'");
     assertTrue(column2.getTasks().contains(task1), "Task should be added to 'Done'");
@@ -78,7 +79,7 @@ public class TaskBoardTest {
   }
 
   @Test
-  public void testGetFormattedActivityLog() {
+  public void testGetFormattedActivityLog() throws ColumnNotFoundException {
     taskBoard.moveTask(task2, column1, column2);
     String log = taskBoard.getFormattedActivityLog();
     assertTrue(

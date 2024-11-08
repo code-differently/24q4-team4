@@ -1,16 +1,11 @@
 package opp.project.t4;
 
 import static org.junit.jupiter.api.Assertions.*;
-import java.util.ArrayList;
-import java.util.List;
-
 
 import java.util.UUID;
+import opp.project.t4.exceptions.ColumnNotFoundException;
 import org.junit.jupiter.api.Test;
 
-import opp.project.t4.exceptions.ColumnNotFoundException;
-
-import opp.project.t4.exceptions.TaskNotFoundException;
 class ColumnTest {
   private Column column;
   private Task task1;
@@ -39,14 +34,26 @@ class ColumnTest {
             + id2
             + "\nTitle: Design Review\nDescription: Review design documents\nPriority: MEDIUM\n";
 
-        // Check if the actual output matches the expected output
-        assertEquals(expectedOutput, column.toString(), "Column's toString method should return formatted task list");
-    }
-}
     // Check if the actual output matches the expected output
     assertEquals(
         expectedOutput,
         column.toString(),
         "Column's toString method should return formatted task list");
+    // Check if the actual output matches the expected output
+    assertEquals(
+        expectedOutput,
+        column.toString(),
+        "Column's toString method should return formatted task list");
+  }
+
+  @Test
+  public void testColumnNotFound() {
+    column = new Column("This is some bs");
+
+    assertThrows(
+        ColumnNotFoundException.class,
+        () -> {
+          column.removeTask(task1);
+        });
   }
 }

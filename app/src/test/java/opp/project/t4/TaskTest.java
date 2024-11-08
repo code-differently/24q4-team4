@@ -5,8 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.ArrayList;
 import java.util.List;
-import opp.project.t4.exceptions.TaskNotFoundException;
 import java.util.UUID;
+import opp.project.t4.exceptions.TaskNotFoundException;
 import org.junit.jupiter.api.Test;
 
 class TaskTest {
@@ -59,9 +59,9 @@ class TaskTest {
   @Test
   public void testFindTaskById_TaskNotFound() {
     List<Task> tasks = new ArrayList<>();
-    tasks.add(new Task("Task 1", "Description for Task 1", "1", "High"));
-    tasks.add(new Task("Task 2", "Description for Task 2", "2", "Medium"));
-    tasks.add(new Task("Task 3", "Description for Task 3", "3", "Low"));
+    tasks.add(new Task("Task 1", "Description for Task 1", id, Priority.HIGH));
+    tasks.add(new Task("Task 2", "Description for Task 2", id, Priority.MEDIUM));
+    tasks.add(new Task("Task 3", "Description for Task 3", id, Priority.LOW));
 
     assertThrows(
         TaskNotFoundException.class,

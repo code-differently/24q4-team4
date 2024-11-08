@@ -4,5 +4,6 @@
         "Taskboard",
         "taskslist"
     ],
-    "livePreview.defaultPreviewPath": "/app/build/reports/jacoco/test/html/index.html"
+    "livePreview.defaultPreviewPath": "/app/build/reports/jacoco/test/html/index.html",
+    "java.debug.settings.onBuildFailureProceed": true
 }

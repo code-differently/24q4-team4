@@ -28,6 +28,12 @@
 //     ArrayList<Task> taskList1 = new ArrayList<>();
 //     taskList.add(new Task("Complete lesson_16", null, null, null));
 //     taskList.add(new Task("Create Resume", null, null, null));
+//     taskList.add(new Task("Complete lesson_17"));
+//     taskList.add(new Task("Update Resume"));
+
+//     ArrayList<Task> taskList1 = new ArrayList<>();
+//     taskList.add(new Task("Complete lesson_16"));
+//     taskList.add(new Task("Create Resume"));
 
 //     user = new User(id, "Chigazo Graham", taskList);
 //     user1 = new User(id, "Chigazo Graham", taskList1); // Same ID as user1
@@ -70,6 +76,8 @@
 //     ArrayList<Task> actualTaskList = user.getTaskList();
 //     // Arrange
 //     ArrayList<Task> expectedTaskList = new ArrayList<Task>();
+//     ArrayList<Task> expectedTaskList = new ArrayList<Task>("Complete lesson_17", "Update
+// Resume");
 //     // Assert
 //     assertEquals(expectedTaskList, actualTaskList);
 //   }

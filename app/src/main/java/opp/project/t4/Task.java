@@ -1,5 +1,8 @@
 package opp.project.t4;
 
+import java.util.List;
+import opp.project.t4.exceptions.TaskNotFoundException;
+
 public class Task {
   private String title;
   private String description;
@@ -39,9 +42,26 @@ public class Task {
 
   @Override
   public String toString() {
-    return "Task ID: " + id + "\n" +
-           "Title: " + title + "\n" +
-           "Description: " + description + "\n" +
-           "Priority: " + priority + "\n";
+    return "Task ID: "
+        + id
+        + "\n"
+        + "Title: "
+        + title
+        + "\n"
+        + "Description: "
+        + description
+        + "\n"
+        + "Priority: "
+        + priority
+        + "\n";
+  }
+
+  public static Task findTaskById(List<Task> tasks, String id) throws TaskNotFoundException {
+    for (Task task : tasks) {
+      if (task.getId().equals(id)) {
+        return task;
+      }
+    }
+    throw new TaskNotFoundException("Task with ID " + id + " not found.");
   }
 }

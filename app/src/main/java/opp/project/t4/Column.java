@@ -2,6 +2,8 @@ package opp.project.t4;
 
 import java.util.ArrayList;
 
+import opp.project.t4.exceptions.ColumnNotFoundException;
+
 public class Column {
 
   public final String title;
@@ -15,7 +17,7 @@ public class Column {
   public String getTitle() {
     return title;
   }
-
+ 
   public void addTask(Task task) {
     taskslist.add(task);
   }
@@ -27,7 +29,7 @@ public class Column {
   public ArrayList<Task> getTasks() {
     return taskslist;
   }
-
+ 
   @Override
   public String toString() {
     StringBuilder taskslistStr = new StringBuilder();

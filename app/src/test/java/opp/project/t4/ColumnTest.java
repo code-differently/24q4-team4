@@ -2,9 +2,13 @@ package opp.project.t4;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import opp.project.t4.exceptions.ColumnNotFoundException;
+
+import opp.project.t4.exceptions.TaskNotFoundException;
 class ColumnTest {
   private Column column;
   private Task task1;

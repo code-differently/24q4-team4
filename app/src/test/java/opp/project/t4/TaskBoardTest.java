@@ -2,6 +2,7 @@ package opp.project.t4;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.UUID;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,15 +12,20 @@ public class TaskBoardTest {
   private Column column2;
   private Task task1;
   private Task task2;
+  Priority priority;
+
+  UUID id = UUID.randomUUID();
 
   @BeforeEach
   public void setUp() {
     // Set up a TaskBoard and Columns for testing
+    UUID id1 = UUID.randomUUID();
+    UUID id2 = UUID.randomUUID();
     taskBoard = new TaskBoard("Project Board");
     column1 = new Column("To Do");
     column2 = new Column("Done");
-    task1 = new Task("Complete Report", "Finish the quarterly report", "1", "High");
-    task2 = new Task("Design Review", "Review design documents", "2", "Medium");
+    task1 = new Task("Complete Report", "Finish the quarterly report", id1, Priority.HIGH);
+    task2 = new Task("Design Review", "Review design documents", id2, Priority.MEDIUM);
 
     // Add columns to the board and tasks to column1
     taskBoard.addColumn(column1);

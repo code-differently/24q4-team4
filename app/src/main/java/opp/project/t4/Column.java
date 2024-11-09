@@ -32,6 +32,19 @@ public class Column {
     return tasksList;
   }
 
+  public double getProgressPercentage() {
+    if (tasksList.isEmpty()) {
+      return 0.0;
+    }
+    int completedTasks = 0;
+    for (Task task : tasksList) {
+      if (task.isCompleted()) {
+        completedTasks++;
+      }
+    }
+    return (completedTasks / (double) tasksList.size()) * 100;
+  }
+
   @Override
   public String toString() {
     StringBuilder taskslistStr = new StringBuilder();

@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This project aims to address a real-world challenge by creating a scalable and maintainable software solution through Object-Oriented Programming(OOP) and S.O.L.I.D. design principles. Our focus is on building an application that promotes code reusability, effective collaboration, and adaptability to future needs.
+This project aims to address a real-world challenge by creating a scalable and maintainable software solution through **Object-Oriented Programming(OOP)** and **S.O.L.I.D.** design principles. Our focus is on building an application that promotes code reusability, effective collaboration, and adaptability to future needs.
 
 Development will be conducted in Visual Studio Code created in Java, using Git and GitHub for version control to ensure efficient team management. We will follow the full development lifecycle, from ideation to implementation, prioritizing best practices in software design and development. Our final project submission will enable the functionality described by our user stories that can be found in the 'Issues' tab to guide our development process and ensure we meet the project requirements effectively.
 
@@ -28,29 +28,32 @@ Inefficient workflow management frequently leads to confusion, miscommunication,
 
 ## The Solution
 
-* [Include a short explanation of how we are applying each of the SOLID principles in our project to demonstrate a deeper understanding of software design.]
-* [If applicable, mention how the Kanban board will enhance user experience or meet user needs. Highlighting the end-user benefits can be appealing.]
-* [If you can include any metrics or results from user testing (if conducted), it can provide evidence of Our project’s effectiveness.]
+Our Kanban app is engineered with three powerful features to elevate team productivity and task management. 
+
+1. **The Progress Tracker** provides users with real-time updates on task progress, fostering a goal-oriented mindset and keeping teams aligned with their objectives.
+2. **The User/Task Manager** goes beyond basic task assignments, enabling role-based permissions and fostering accountability across teams by allowing managers to allocate responsibilities and monitor contributions seamlessly.
+3. **The Task Board** serves as an intuitive workspace for prioritizing, organizing, and tracking tasks to meet deadlines effectively, ensuring every team member is focused on what matters most. 
+
+Together, these features create a cohesive, productivity-driven experience that adapts to any project environment, making our Kanban app a valuable tool for teams aiming to optimize their workflows and achieve exceptional outcomes
 
 ## How To Improve
 
-1. [Discuss any planned features or improvements showcasing your commitment to ongoing development and responsiveness to user feedback.]
-- Automated Task Prioritization
-- Time Tracking and Estimates
-- Notifications and Reminders
-- Activity Log
-- Labels and Tags
-- Analytics and Reporting
-- Custom Workflow Options
-- Integrations with Other Software
-- Improved User Interface
+To enhance the functionality and user experience of our Kanban app, several techinal improvements could be considered for future development:
 
+- **Automated Task Prioritization** would help users focus on the most critical tasks, improving efficiency. 
+- **Time Tracking** would enable users to monitor the duration of each task, promoting better time management and planning. 
+- Adding **Notifications and Reminders** would ensure that team members stay updated on deadlines and task progress. 
+- **Labels and Tags** would allow for better task categorization.
+- **Analytics and Reporting** would offer insights into productivity trends.
+- **Custom Workflow Options** would allow teams to tailor the board structure to their specific needs.
+- **Integrations with Other Software** would enable seamless collaboration with other tools used in the workflow.
+- An **User Interface** would make the app more intuitive, enhancing usability and overall satisfaction.
 
 ## Timeline
 
 * Submit three user stories (Due: Monday, 11/4, 5PM EST | Completed: Friday, 11/1, 5PM EST)
 * Receive approval for your user stories (Due: Tuesday, 11/5, 1PM EST | Completed: Monday, 11/4, 2PM EST)
-* Finish code commits (Due: Friday, 11/8, 1PM EST | Completed: --)
-* Give presentation (Due: Monday, 11/11, 1PM EST | Completed: --)
+* Finish code commits (Due: Friday, 11/8, 1PM EST | Completed: Friday, 11/8, 1PM EST)
+* Give presentation (Due: Monday, 11/11, 1PM EST | Completed: Monday, 11/11 11PM EST
 
 

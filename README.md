@@ -56,4 +56,9 @@ To enhance the functionality and user experience of our Kanban app, several tech
 * Finish code commits (Due: Friday, 11/8, 1PM EST | Completed: Friday, 11/8, 1PM EST)
 * Give presentation (Due: Monday, 11/11, 1PM EST | Completed: Monday, 11/11 11PM EST
 
+## Presentation
+
+* Initial Presentation link[https://docs.google.com/presentation/d/1rbupDNUv-u6F1CKVs5p0R1RogUaK7eGBQm5GpqV72L4/edit?usp=sharing]
+
+
 

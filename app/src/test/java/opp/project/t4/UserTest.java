@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class UserTest {
     /*
@@ -16,18 +17,20 @@ class UserTest {
     User user;
     User user1;
     User user2;
+    
 
     @BeforeEach
     void setUp() {
         UUID id = UUID.randomUUID();
 
         ArrayList<Task> taskList = new ArrayList<>();
-        taskList.add(new Task("Complete lesson_17"));
-        taskList.add(new Task("Update Resume"));
+        taskList.add(new Task("Complete lesson_17", "Apply SOLID Principles to Bank ATM", "1", "High"));
+        taskList.add(new Task("Update Resume", "add certifications to resume", "2", "Low"));
 
         ArrayList<Task> taskList1 = new ArrayList<>();
-        taskList.add(new Task("Complete lesson_16"));
-        taskList.add(new Task("Create Resume"));
+        taskList1.add(new Task("Complete lesson_16", "Create a Custom Data Type", "3", "High"));
+        taskList1.add(new Task("Create Resume", "make a resume that properly describes your professional experience", "3", "Medium"));
+
 
         user = new User(id, "Chigazo Graham", taskList);
         user1 = new User(id, "Chigazo Graham", taskList1);  // Same ID as user1
@@ -70,7 +73,12 @@ class UserTest {
         //Act
         ArrayList<Task> actualTaskList = user.getTaskList();
         //Arrange
-        ArrayList<Task> expectedTaskList = new ArrayList<Task>("Complete lesson_17", "Update Resume");
+        ArrayList<Task> taskList1 = new ArrayList<>();
+        taskList1.add(new Task("Complete lesson_16", "Create a Custom Data Type", "3", "High"));
+        taskList1.add(new Task("Create Resume", "make a resume that properly describes your professional experience", "3", "Medium"));
+
+
+        ArrayList<Task> expectedTaskList = new ArrayList<Task>(taskList1);
         //Assert
         assertEquals(expectedTaskList, actualTaskList);
     }

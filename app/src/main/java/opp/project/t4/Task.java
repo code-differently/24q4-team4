@@ -1,5 +1,7 @@
 package opp.project.t4;
 
+import java.util.Objects;
+
 public class Task {
   private String title;
   private String description;
@@ -39,9 +41,30 @@ public class Task {
 
   @Override
   public String toString() {
-    return "Task ID: " + id + "\n" +
-           "Title: " + title + "\n" +
-           "Description: " + description + "\n" +
-           "Priority: " + priority + "\n";
+    return "Task ID: "
+        + id
+        + "\n"
+        + "Title: "
+        + title
+        + "\n"
+        + "Description: "
+        + description
+        + "\n"
+        + "Priority: "
+        + priority
+        + "\n";
   }
+
+  @Override
+public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Task task = (Task) o;
+    return title.equals(task.title) && description.equals(task.description) && id.equals(task.id) && priority.equals(task.priority);
+}
+
+@Override
+public int hashCode() {
+    return Objects.hash(title, description, id, priority);
+}
 }

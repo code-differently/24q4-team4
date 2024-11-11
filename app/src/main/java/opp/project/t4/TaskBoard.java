@@ -1,6 +1,7 @@
 package opp.project.t4;
 
 import java.util.ArrayList;
+import opp.project.t4.exceptions.ColumnNotFoundException;
 
 public class TaskBoard {
   private ArrayList<Column> columns;
@@ -39,7 +40,8 @@ public class TaskBoard {
     logAction("Removed Column: " + column.getTitle());
   }
 
-  public void moveTask(Task task, Column fromColumn, Column toColumn) {
+  public void moveTask(Task task, Column fromColumn, Column toColumn)
+      throws ColumnNotFoundException {
     fromColumn.removeTask(task);
     toColumn.addTask(task);
     logAction(

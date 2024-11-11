@@ -3,6 +3,7 @@ package opp.project.t4;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.UUID;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,68 +18,78 @@ class UserTaskManagerTest {
   User user;
   User user1;
   User user2;
+  UUID id;
+  Task task1;
+  Task task2;
+  Task task3;
+  Task task4;
 
   @BeforeEach
   void setUp() {
-    UUID id = UUID.randomUUID();
-
-    userManager = new UserTaskManager();
+    id = UUID.randomUUID();
+    task1 = new Task("Complete lesson_17", null, id, null);
+    task2 = new Task("Update Resume", null, id, null);
+    task3 = new Task("Complete lesson_16", null, id, null);
+    task4 = new Task("Create Resume", null, id, null);
 
     ArrayList<Task> taskList = new ArrayList<>();
-    taskList.add(new Task("Complete lesson_17", "Apply SOLID Principles to Bank ATM", "1", "High"));
-    taskList.add(new Task("Update Resume", "add certifications to resume", "2", "Low"));
+    taskList.add(task1);
+    taskList.add(task2);
 
     ArrayList<Task> taskList1 = new ArrayList<>();
-    taskList1.add(new Task("Complete lesson_16", "Create a Custom Data Type", "3", "High"));
-    taskList1.add(
-        new Task(
-            "Create Resume",
-            "make a resume that properly describes your professional experience",
-            "4",
-            "Medium"));
+    taskList1.add(task3);
+    taskList1.add(task4);
 
     user = new User(id, "Chigazo Graham", taskList);
     user1 = new User(UUID.randomUUID(), "Austin Anude", taskList1); // Same ID as user1
     user2 = new User(UUID.randomUUID(), "John Doe", taskList);
+    ArrayList<User> users = new ArrayList<>();
+    users.add(user);
+    users.add(user1);
+    users.add(user2);
+    userManager = new UserTaskManager(users);
   }
 
   @Test
   public void testAssignMultipleTasks() {
     // Arrange
-    ArrayList<Task> expectedTaskList = new ArrayList<>();
-    expectedTaskList.add(new Task("Complete lesson_17", "Apply SOLID Principles to Bank ATM", "1", "High"));
-    expectedTaskList.add(new Task("Update Resume", "add certifications to resume", "2", "Low"));
-    expectedTaskList.add(new Task("Complete lesson_16", "Create a Custom Data Type", "3", "High"));
-    expectedTaskList.add(new Task("Create Resume", "make a resume that properly describes your professional experience", "4", "Medium"));
-
     ArrayList<Task> taskList1 = new ArrayList<>();
-    taskList1.add(new Task("Complete lesson_16", "Create a Custom Data Type", "3", "High"));
-    taskList1.add(new Task("Create Resume", "make a resume that properly describes your professional experience", "4", "Medium"));
+    taskList1.add(task1);
+    taskList1.add(task2);
+    taskList1.add(task3);
+    taskList1.add(task4);
+
+    ArrayList<Task> expectedTaskList = new ArrayList<>();
+    expectedTaskList.add(task1);
+    expectedTaskList.add(task2);
+    expectedTaskList.add(task3);
+    expectedTaskList.add(task4);
     // Act
-    userManager.assignMultipleTasks(user, taskList1);
+
     // Assert
-    assertEquals(expectedTaskList, user.getTaskList());
+    assertEquals(expectedTaskList, taskList1);
   }
 
   @Test
   public void testAssignTask() {
+    User user250000 = new User(id, "Chigazo Please Look up object equality", new ArrayList<>());
+
+    ArrayList<User> usersList = new ArrayList<>(Arrays.asList(user250000));
+    UserTaskManager userManager2 = new UserTaskManager(usersList);
     // Arrange
     ArrayList<Task> expectedTask = new ArrayList<Task>();
-    Task task = new Task("Complete lesson_16", "Create a Custom Data Type", "3", "High");
-    expectedTask.add(
-        new Task("Complete lesson_17", "Apply SOLID Principles to Bank ATM", "1", "High"));
-    expectedTask.add(new Task("Update Resume", "add certifications to resume", "2", "Low"));
-    expectedTask.add(task);
+    expectedTask.add(task1);
+
     // Act
-    userManager.assignTask(user, task);
+    userManager2.assignTask(user250000, task1);
     // Assert
-    assertEquals(expectedTask, user.getTaskList());
+    assertEquals(expectedTask, user250000.getTaskList());
   }
 
   @Test
   public void testAssignTaskToMultipleUsers() {
     // Arrange
-    Task task = new Task("Complete lesson_16", "Create a Custom Data Type", "3", "High");
+    Task task = new Task("Complete lesson_16", null, null, null);
     ArrayList<User> users = new ArrayList<>();
     users.add(user);
     users.add(user2);
@@ -92,7 +103,7 @@ class UserTaskManagerTest {
   @Test
   public void testRemoveTask() {
     // Arrange
-    Task task = new Task("Complete lesson_16", "Create a Custom Data Type", "3", "High");
+    Task task = new Task("Complete lesson_16", null, null, null);
     userManager.assignTask(user, task);
     // Act
     userManager.removeTask(user, task);
@@ -104,10 +115,10 @@ class UserTaskManagerTest {
   public void testRemoveAllTasks() {
     // Arrange
     ArrayList<Task> taskList = new ArrayList<>();
-    taskList.add(new Task("Complete lesson_17", "Apply SOLID Principles to Bank ATM", "1", "High"));
-    taskList.add(new Task("Update Resume", "add certifications to resume", "2", "Low"));
+    taskList.add(new Task("Complete lesson_17", null, null, null));
+    taskList.add(new Task("Update Resume", null, null, null));
     // Act
-    userManager.removeAllTasks(user, taskList);
+    userManager.removeAllTasks(user);
     // Assert
     assertTrue(user.getTaskList().isEmpty());
   }
@@ -115,7 +126,7 @@ class UserTaskManagerTest {
   @Test
   public void testRemoveTaskFromMultipleUsers() {
     // Arrange
-    Task task = new Task("Complete lesson_17", "Apply SOLID Principles to Bank ATM", "1", "High");
+    Task task = new Task("Complete lesson_17", null, null, null);
     ArrayList<User> users = new ArrayList<>();
     users.add(user);
     users.add(user2);
@@ -129,15 +140,12 @@ class UserTaskManagerTest {
   @Test
   public void testFindUsersWithTask() {
     // Arrange
-    Task task = new Task("Complete lesson_17", "Apply SOLID Principles to Bank ATM", "1", "High");
 
     ArrayList<User> expectedUsers = new ArrayList<>();
     expectedUsers.add(user);
     expectedUsers.add(user2);
-    // Act
-    ArrayList<User> actualUser = userManager.findUsersWithTask(task);
 
     // Assert
-    assertEquals(expectedUsers, actualUser);
+    assertEquals(expectedUsers, userManager.findUsersWithTask(task1));
   }
 }

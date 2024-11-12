@@ -54,7 +54,7 @@ To enhance the functionality and user experience of our Kanban app, several tech
 * Submit three user stories (Due: Monday, 11/4, 5PM EST | Completed: Friday, 11/1, 5PM EST)
 * Receive approval for your user stories (Due: Tuesday, 11/5, 1PM EST | Completed: Monday, 11/4, 2PM EST)
 * Finish code commits (Due: Friday, 11/8, 1PM EST | Completed: Friday, 11/8, 1PM EST)
-* Give presentation (Due: Monday, 11/11, 1PM EST | Completed: Monday, 11/11 11PM EST
+* Give presentation (Due: Monday, 11/11, 1PM EST | Completed: Monday, 11/11 11PM EST)
 
 ## Presentation
 

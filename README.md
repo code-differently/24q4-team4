@@ -9,7 +9,7 @@ For the next two weeks(Dec 2nd - Dec 14th), our team will ideate and implement a
 Development will be conducted in Visual Studio Code created in JavaScript, using Git and GitHub for version control to ensure efficient team management. We will follow the full development lifecycle, from ideation to implementation, prioritizing best practices in software design and development. Our final project submission will enable the functionality described by our user stories that can be found in the 'Issues' tab to guide our development process and ensure we meet the project requirements effectively.
 
 ---
-*[Instert Completed Kanban App Screeshot]*
+*[Insert Completed Kanban App Screeshot]*
 ***
 
 ## Our App

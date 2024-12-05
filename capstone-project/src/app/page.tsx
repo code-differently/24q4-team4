@@ -1,7 +1,15 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import React from "react";
+import { RiveDemo } from "./components/RiveDemo/RiveDemo"; // Adjust path if RiveDemo is not in the same directory
+
+const Page: React.FC = () => {
   return (
-    <h1>This is the Home Page</h1>
+    <div>
+      <h1>Welcome to the Rive Animation Page</h1>
+      <RiveDemo />
+    </div>
   );
-}
+};
+
+export default Page;

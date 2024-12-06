@@ -1,7 +1,16 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+
+import React from "react";
+import { RiveDemo } from "./components/RiveDemo/RiveDemo"; // Adjust path if RiveDemo is not in the same directory
+
+const Page: React.FC = () => {
   return (
-    <h1>This is the home/sign in Page</h1>
+    <div>
+      
+     <RiveDemo />
+    </div>
   );
-}
+};
+
+export default Page;

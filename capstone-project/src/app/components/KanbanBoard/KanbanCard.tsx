@@ -6,9 +6,9 @@ type KanbanCardProps = {
     description: string;
     tags: string;
     dueDate: string;
-  };
+};
   
-  const KanbanCard: React.FC<KanbanCardProps> = ({ id, title, description, tags, dueDate}) => {
+const KanbanCard: React.FC<KanbanCardProps> = ({ id, title, description, tags, dueDate}) => {
     return (
         <div>
             <h1>
@@ -25,4 +25,6 @@ type KanbanCardProps = {
             </h4>
         </div>
     );
-  };
+};
+
+export default KanbanCard;

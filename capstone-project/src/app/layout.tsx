@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import  ClientWrapper  from "./components/ClientWrapper/ClientWrapper"; // Adjust the path as needed
+import  ClientWrapper  from "./components/ClerkAuthenticator/ClientWrapper/ClientWrapper"; // Adjust the path as needed
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

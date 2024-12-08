@@ -13,6 +13,7 @@ generator client {
 model Board {
   id        Int      @id @default(autoincrement())  // Unique ID for each board
   title     String   // Title of the board
+  userId    String   // Clerk user ID
   lists     List[]   // Relationship with Lists (a board has many lists)
   createdAt DateTime @default(now())  // Timestamp when the board was created
   updatedAt DateTime @updatedAt  // Automatically updated timestamp

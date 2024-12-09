@@ -123,3 +123,47 @@ export async function DELETE(request: NextRequest) {
     return response({ success: false, error: "Failed to delete board" }, 500);
   }
 }
+export async function PUT(request: NextRequest) {
+  try {
+    const { userId } = getAuth(request);
+
+    if (!userId) {
+      return response({ success: false, error: "Unauthorized" }, 401);
+    }
+
+    const boardId = request.nextUrl.searchParams.get("id");
+    const body = await request.json();
+    const { title } = body;
+
+    if (!boardId) {
+      return response({ success: false, error: "Board ID is required" }, 400);
+    }
+
+    if (!title) {
+      return response({ success: false, error: "Title is required" }, 400);
+    }
+
+    // Step 1: Verify ownership
+    const board = await prisma.board.findFirst({
+      where: {
+        id: parseInt(boardId),
+        userId,
+      },
+    });
+
+    if (!board) {
+      return response({ success: false, error: "Board not found or you do not have permission to update it" }, 404);
+    }
+
+    // Step 2: Update the board
+    const updatedBoard = await prisma.board.update({
+      where: { id: parseInt(boardId) }, // Use only the unique 'id'
+      data: { title },
+    });
+
+    return response({ success: true, data: updatedBoard });
+  } catch (error) {
+    console.error("Error updating board:", error);
+    return response({ success: false, error: "Failed to update board" }, 500);
+  }
+}

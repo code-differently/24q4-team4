@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import KanbanColumn from "./KanbanColumn";
 
 interface Card {
-  id: number;
+  id: number; // Keep id as a number
   title: string;
   content?: string;
 }
@@ -26,7 +27,7 @@ export default function KanbanBoard() {
       const res = await fetch("/api/boards");
       if (res.ok) {
         const data = await res.json();
-        setBoards(data);
+        setBoards(data.data);
       }
     };
 
@@ -39,6 +40,18 @@ export default function KanbanBoard() {
       {boards.map((board) => (
         <div key={board.id}>
           <h2>{board.title}</h2>
+          <div style={{ display: "flex", gap: "20px" }}>
+            {board.lists.map((list) => (
+              <KanbanColumn
+                key={list.id}
+                title={list.title}
+                cards={list.cards.map((card) => ({
+                  ...card,
+                  id: card.id.toString(), // Convert id to string
+                }))}
+              />
+            ))}
+          </div>
         </div>
       ))}
     </div>

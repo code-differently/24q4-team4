@@ -6,6 +6,26 @@ import { getAuth } from "@clerk/nextjs/server";
 const response = (data: any, status: number = 200) =>
   NextResponse.json(data, { status });
 
+// GET: Fetch all lists for a specific board
+export async function GET(request: NextRequest) {
+  const { userId } = getAuth(request);
+  const boardId = request.nextUrl.searchParams.get("boardId");
+
+  if (!userId) return response({ success: false, error: "Unauthorized" }, 401);
+  if (!boardId) return response({ success: false, error: "Board ID is required" }, 400);
+
+  try {
+    const lists = await prisma.list.findMany({
+      where: { boardId: parseInt(boardId), board: { userId } },
+      include: { cards: true },
+    });
+
+    return response({ success: true, data: lists });
+  } catch (error) {
+    console.error("Error fetching lists:", error);
+    return response({ success: false, error: "Failed to fetch lists" }, 500);
+  }
+}
 // Create a new list in a board
 export async function POST(request: NextRequest) {
   const { userId } = getAuth(request);

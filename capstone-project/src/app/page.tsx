@@ -2,7 +2,7 @@
 
 
 import React from "react";
-import { RiveDemo } from "./components/Rive/RiveDemo/RiveDemo"; // Adjust path if RiveDemo is not in the same directory
+import { RiveDemo } from "./components/RiveAnimations/RiveDemo/RiveDemo"; // Adjust path if RiveDemo is not in the same directory
 
 const Page: React.FC = () => {
   return (

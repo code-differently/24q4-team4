@@ -13,13 +13,16 @@ interface CreateBoardRequest {
 
 // Get all boards for the authenticated user
 export async function GET(request: NextRequest) {
-  const { userId } = getAuth(request);
-
-  if (!userId) {
-    return response({ success: false, error: "Unauthorized" }, 401);
-  }
-
   try {
+    const { userId } = await getAuth(request); // Ensure getAuth is awaited
+
+    console.log("Authenticated User ID:", userId);
+
+    if (!userId) {
+      console.warn("Unauthorized access attempt");
+      return response({ success: false, error: "Unauthorized" }, 401);
+    }
+
     const boards = await prisma.board.findMany({
       where: { userId },
       include: {
@@ -31,6 +34,7 @@ export async function GET(request: NextRequest) {
       },
     });
 
+    console.log("Fetched Boards:", boards);
     return response({ success: true, data: boards });
   } catch (error) {
     console.error("Error fetching boards:", error);
@@ -40,13 +44,16 @@ export async function GET(request: NextRequest) {
 
 // Create a new board for the authenticated user
 export async function POST(request: NextRequest) {
-  const { userId } = getAuth(request);
-
-  if (!userId) {
-    return response({ success: false, error: "Unauthorized" }, 401);
-  }
-
   try {
+    const { userId } = await getAuth(request); // Ensure getAuth is awaited
+
+    console.log("Authenticated User ID:", userId);
+
+    if (!userId) {
+      console.warn("Unauthorized access attempt");
+      return response({ success: false, error: "Unauthorized" }, 401);
+    }
+
     const body = (await request.json()) as CreateBoardRequest;
     const { title } = body;
 
@@ -65,6 +72,7 @@ export async function POST(request: NextRequest) {
       },
     });
 
+    console.log("Created Board:", newBoard);
     return response({ success: true, data: newBoard }, 201);
   } catch (error) {
     console.error("Error creating board:", error);
@@ -74,18 +82,22 @@ export async function POST(request: NextRequest) {
 
 // Delete a board by ID for the authenticated user
 export async function DELETE(request: NextRequest) {
-  const { userId } = getAuth(request);
-  const boardId = request.nextUrl.searchParams.get("id");
-
-  if (!userId) {
-    return response({ success: false, error: "Unauthorized" }, 401);
-  }
-
-  if (!boardId) {
-    return response({ success: false, error: "Board ID is required" }, 400);
-  }
-
   try {
+    const { userId } = await getAuth(request); // Ensure getAuth is awaited
+    const boardId = request.nextUrl.searchParams.get("id");
+
+    console.log("Authenticated User ID:", userId);
+    console.log("Board ID to delete:", boardId);
+
+    if (!userId) {
+      console.warn("Unauthorized access attempt");
+      return response({ success: false, error: "Unauthorized" }, 401);
+    }
+
+    if (!boardId) {
+      return response({ success: false, error: "Board ID is required" }, 400);
+    }
+
     // Find the board to ensure it belongs to the authenticated user
     const board = await prisma.board.findFirst({
       where: {
@@ -95,6 +107,7 @@ export async function DELETE(request: NextRequest) {
     });
 
     if (!board) {
+      console.warn("Board not found or unauthorized deletion attempt");
       return response({ success: false, error: "Board not found or you do not have permission to delete it" }, 404);
     }
 
@@ -103,6 +116,7 @@ export async function DELETE(request: NextRequest) {
       where: { id: board.id },
     });
 
+    console.log("Deleted Board ID:", board.id);
     return response({ success: true, message: "Board deleted successfully" });
   } catch (error) {
     console.error("Error deleting board:", error);

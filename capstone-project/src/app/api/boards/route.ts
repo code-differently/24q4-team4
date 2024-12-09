@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma"; 
+import { prisma } from "@/lib/prisma";
 import { getAuth } from "@clerk/nextjs/server";
 
 // Helper function for JSON responses
@@ -32,12 +32,10 @@ export async function GET(request: NextRequest) {
     });
 
     return response({ success: true, data: boards });
-} catch (error) {
-    const errorMessage = error instanceof Error ? error.message : "An unknown error occurred";
-    console.error("Error fetching boards:", errorMessage);
-    return response({ success: false, error: "Failed to fetch boards", details: errorMessage }, 500);
+  } catch (error) {
+    console.error("Error fetching boards:", error);
+    return response({ success: false, error: "Failed to fetch boards" }, 500);
   }
-  
 }
 
 // Create a new board for the authenticated user
@@ -68,13 +66,46 @@ export async function POST(request: NextRequest) {
     });
 
     return response({ success: true, data: newBoard }, 201);
-} catch (error) {
-    if (error instanceof Error) {
-      console.error("Error:", error.message);
-      return response({ success: false, error: "An error occurred", details: error.message }, 500);
-    } else {
-      console.error("Unknown error:", error);
-      return response({ success: false, error: "An unknown error occurred" }, 500);
-    }
+  } catch (error) {
+    console.error("Error creating board:", error);
+    return response({ success: false, error: "Failed to create board" }, 500);
   }
-}  
+}
+
+// Delete a board by ID for the authenticated user
+export async function DELETE(request: NextRequest) {
+  const { userId } = getAuth(request);
+  const boardId = request.nextUrl.searchParams.get("id");
+
+  if (!userId) {
+    return response({ success: false, error: "Unauthorized" }, 401);
+  }
+
+  if (!boardId) {
+    return response({ success: false, error: "Board ID is required" }, 400);
+  }
+
+  try {
+    // Find the board to ensure it belongs to the authenticated user
+    const board = await prisma.board.findFirst({
+      where: {
+        id: parseInt(boardId),
+        userId, // Filter by userId
+      },
+    });
+
+    if (!board) {
+      return response({ success: false, error: "Board not found or you do not have permission to delete it" }, 404);
+    }
+
+    // Delete the board
+    await prisma.board.delete({
+      where: { id: board.id },
+    });
+
+    return response({ success: true, message: "Board deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting board:", error);
+    return response({ success: false, error: "Failed to delete board" }, 500);
+  }
+}

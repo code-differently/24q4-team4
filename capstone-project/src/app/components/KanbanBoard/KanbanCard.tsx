@@ -10,6 +10,7 @@ type KanbanCardProps = {
   
 const KanbanCard: React.FC<KanbanCardProps> = ({ id, title, description, tags, dueDate}) => {
     return (
+        // Defines Kanban Card content
         <div>
             <h1>
                 {title}

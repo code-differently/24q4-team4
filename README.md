@@ -9,7 +9,7 @@ For the next two weeks(Dec 2nd - Dec 14th), our team will ideate and implement a
 Development will be conducted in Visual Studio Code, utilizing TypeScript Execute with the Next.js framework. Git and GitHub will be used for version control to ensure efficient team collaboration, and Vercel will be employed for deployment. The project will follow the full development lifecycle, from ideation to implementation, while prioritizing best practices in software design and development. Our final submission will deliver the functionality outlined in our user stories, which can be found in the 'Issues' tab, guiding our development process and ensuring we meet the project requirements effectively.
 
 ---
-*[Insert Completed Kanban App Screeshot]*
+![6d05c0b7-5d99-45ed-9b51-b95f1e3852b7](https://github.com/user-attachments/assets/b53e39bf-aa99-48e1-8ee4-0fa1310df504)
 ***
 
 ## Our App
@@ -42,6 +42,7 @@ To run the Kanban app locally, follow these steps:
     > npm run dev
 
 5. Open the app in your browser at [http://localhost:3000].
+
 ## Issues and Improvements
 
 #### Know Issues
@@ -53,7 +54,11 @@ To run the Kanban app locally, follow these steps:
 
 ## Roadmap features
 
-- Drag-and-Drop Support: Enable seamless task movement between columns.
+- Interactive Kanban Page: Display columns with associated tasks with real-time updates when tasks are added, removed, or moved.
+- Add/Remove Task Button: A button to add a new task with a form/modal for task details.
+- Task View Page: Detailed view of a single task when clicked and display all task properties/
+- Edit Task View Page: Gives ability to modify existing task properties.
+- *Drag-and-Drop Support: Enable seamless task movement between columns.
 - Dark Mode: Provide a toggle for a dark theme interface.
 - User Authentication: Allow multiple users to securely access their projects.
 

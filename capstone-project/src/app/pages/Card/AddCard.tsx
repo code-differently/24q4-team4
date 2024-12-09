@@ -15,7 +15,7 @@ let KanbanAddTask: React.FC<KanbanAddTask> = ({ isOpen, onClose, addTask }) => {
     dueDate: "",
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setTask((prevTask) => ({
       ...prevTask,
@@ -26,14 +26,14 @@ let KanbanAddTask: React.FC<KanbanAddTask> = ({ isOpen, onClose, addTask }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (task.title && task.dueDate) {
-      addTask(task); // Pass task to parent component
+      addTask(task); // Pass task to parent component & reset task form
       setTask({
         id: "",
         title: "",
         description: "",
         tags: "",
         dueDate: "",
-      }); // Reset task form
+      }); 
     }
   };
 

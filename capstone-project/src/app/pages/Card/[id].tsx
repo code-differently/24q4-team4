@@ -50,7 +50,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     const { taskId } = context.params!; // Non-null assertion since taskId is required
   
     try {
-      const task = await prisma.task.findUnique({
+      const task = await Prisma.task.findUnique({
         where: { id: parseInt(taskId as string) }, // Ensure taskId is parsed correctly as string
       });
   

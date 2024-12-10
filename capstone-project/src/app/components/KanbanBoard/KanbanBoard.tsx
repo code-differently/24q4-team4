@@ -1,7 +1,8 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
 import KanbanColumn from "./KanbanColumn";
+import KanbanCard from "./KanbanCard";
 
 // Define types for Kanban
 type KanbanTask = {
@@ -24,8 +25,7 @@ type KanbanBoardProps = {
   title: string;
 };
 
-const KanbanBoard: React.FC<KanbanBoardProps> = ({ initialColumns }) => {
-  // Initialize state with default or provided columns
+const KanbanBoard: React.FC<KanbanBoardProps> = ({ initialColumns, title }) => {
   const [columns, setColumns] = useState<KanbanColumnType[]>(
     initialColumns || [
       { id: "1", title: "To Do", cards: [] },
@@ -34,7 +34,6 @@ const KanbanBoard: React.FC<KanbanBoardProps> = ({ initialColumns }) => {
     ]
   );
 
-  // Function to delete a task from a column
   const deleteTask = (columnId: string, taskId: string) => {
     setColumns((prevColumns) =>
       prevColumns.map((column) =>
@@ -45,7 +44,6 @@ const KanbanBoard: React.FC<KanbanBoardProps> = ({ initialColumns }) => {
     );
   };
 
-  // Function to add a task to a column
   const addTask = (columnId: string, task: KanbanTask) => {
     setColumns((prevColumns) =>
       prevColumns.map((column) =>
@@ -57,17 +55,31 @@ const KanbanBoard: React.FC<KanbanBoardProps> = ({ initialColumns }) => {
   };
 
   return (
-    <div className="">
-      {columns.map((column) => (
-        <KanbanColumn
-          key={column.id}
-          title={column.title}
-          columnId={column.id}
-          cards={column.cards}
-          deleteTask={deleteTask}
-          addTask={addTask}
-        />
-      ))}
+    <div className="relative flex flex-col items-center min-h-screen bg-gradient-to-br from-teal-500 via-blue-600 to-purple-600 dark:from-gray-900 dark:via-gray-800 dark:to-purple-800 p-10">
+      <div className="flex w-full justify-between gap-8">
+        {columns.map((column) => (
+          <div
+            key={column.id}
+            className="flex flex-col w-1/3 bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden"
+          >
+            <h2 className="text-lg font-bold text-center text-gray-800 dark:text-gray-100 bg-teal-500 dark:bg-teal-800 py-4">
+              {column.title}
+            </h2>
+            <div className="flex flex-col gap-6 p-4">
+              {column.cards.map((card) => (
+                <KanbanCard
+                  key={card.id}
+                  id={card.id}
+                  title={card.title}
+                  description={card.description}
+                  tags={card.tags}
+                  dueDate={card.dueDate}
+                />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

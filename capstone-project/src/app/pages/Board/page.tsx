@@ -1,18 +1,32 @@
-import Link from "next/link";
+"use client";
+
+import { useSearchParams } from "next/navigation";
 import KanbanBoard from "../../components/KanbanBoard/KanbanBoard";
 
 const KanbanPage = () => {
+  const searchParams = useSearchParams();
+  const title = searchParams.get("q") || "Untitled Board";
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-teal-100 via-blue-200 to-purple-300 p-10">
-      <header className="mb-8">
-        <h1 className="text-4xl font-bold text-center text-gray-800">
-        <Link href="/">Kanban Board</Link>
+    <div className="relative min-h-screen bg-gradient-to-br from-teal-500 via-blue-600 to-purple-600 dark:from-gray-900 dark:via-gray-800 dark:to-purple-800 p-10">
+      {/* Return Home Header */}
+      <header className="flex justify-between items-center mb-8">
+        <a
+          href="/"
+          className="text-lg font-semibold text-white bg-teal-600 dark:bg-gray-700 px-4 py-2 rounded-lg shadow-md hover:bg-teal-700 dark:hover:bg-gray-600 transition-all"
+        >
+          &larr; Return Home
+        </a>
+        <h1 className="text-4xl font-extrabold text-white text-center">
+          {title}
         </h1>
-        <p className="text-center text-gray-600 mt-2">
-          Organize and manage your tasks efficiently.
-        </p>
+
       </header>
-      <KanbanBoard id="kanban-board" title="My Kanban Board" />
+
+      {/* Kanban Board */}
+      <main>
+        <KanbanBoard id="kanban-board" title={title} />
+      </main>
     </div>
   );
 };

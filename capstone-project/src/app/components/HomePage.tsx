@@ -3,11 +3,18 @@
 import { UserButton } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { useState } from 'react';
 export default function HomePage() {
   const router = useRouter();
 
   const handleCreateBoard = (event: React.FormEvent) => {
     event.preventDefault();
+  };
+
+  const [boardName, setBoardName] = useState(""); // State to track input
+
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setBoardName(e.target.value); // Update state with input value
   };
 
   return (
@@ -38,6 +45,7 @@ export default function HomePage() {
               Name Your Board
             </label>
             <input
+            onChange={handleOnChange}
               id="board-name"
               type="text"
               placeholder="e.g., My First Board"
@@ -47,7 +55,7 @@ export default function HomePage() {
               type="submit"
               className="w-full rounded-lg bg-gradient-to-r from-teal-500 to-blue-600 px-6 py-3 text-lg font-semibold text-white shadow-lg transition-all transform hover:scale-105 hover:from-teal-600 hover:to-blue-700 focus:outline-none focus:ring-4 focus:ring-teal-300 dark:focus:ring-teal-500"
             >
-              <Link href="pages/Board">Create Kanban Board</Link>
+              <Link href={`pages/Board?q=${encodeURIComponent(boardName)}`}>Create Kanban Board</Link>
             </button>
           </form>
         </div>

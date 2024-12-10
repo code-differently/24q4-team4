@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import  ClientWrapper  from "./components/ClerkAuthenticator/ClientWrapper/ClientWrapper"; // Adjust the path as needed
+import { ClerkProvider, RedirectToSignIn, SignedIn, SignedOut } from "@clerk/nextjs";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -17,10 +18,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <ClerkProvider>
+      <html lang="en">
       <body className={`${geistSans.variable} bg-gray-50`}>
-        <ClientWrapper>{children}</ClientWrapper>
+        <SignedIn>{children}</SignedIn>
+        <SignedOut>
+          <RedirectToSignIn signInFallbackRedirectUrl={"pages/sign-in"}/>
+        </SignedOut>
       </body>
     </html>
+    </ClerkProvider>
   );
 }

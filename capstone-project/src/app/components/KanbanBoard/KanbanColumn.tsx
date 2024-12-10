@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import KanbanCard from "./KanbanCard";
-import { useRouter } from "next/router";
-import KanbanAddTask from "../../pages/Card/AddCard";
+import Link from 'next/link';
+//import KanbanAddTask from "../../pages/Card/AddCard";
 
 type KanbanColumnProps = {
   title: string;
@@ -13,7 +13,6 @@ type KanbanColumnProps = {
 
 const KanbanColumn: React.FC<KanbanColumnProps> = ({ title, cards, columnId, addTask, deleteTask }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const router = useRouter();
 
   const handleAddTask = (task: { id: string; title: string; description: string; tags: string; dueDate: string }) => {
     addTask(columnId, task); // Pass the column ID and task to the parent
@@ -21,7 +20,7 @@ const KanbanColumn: React.FC<KanbanColumnProps> = ({ title, cards, columnId, add
   };
 
   const handleCardClick = (id: string) => {
-    router.push(`/KanbanCard/${id}`);
+    <Link href={`/KanbanCard/${id}`}/>
   };
 
   return (
@@ -66,12 +65,12 @@ const KanbanColumn: React.FC<KanbanColumnProps> = ({ title, cards, columnId, add
         ))}
       </div>
 
-      {/* Add Task Modal */}
+      {/* Add Task Modal
       <KanbanAddTask
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         addTask={handleAddTask}
-      />
+      /> */}
     </div>
   );
 };

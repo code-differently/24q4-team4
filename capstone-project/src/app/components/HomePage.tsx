@@ -1,8 +1,15 @@
 'use client';
 
 import { UserButton } from '@clerk/nextjs';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+export default function HomePage() {
+  const router = useRouter();
 
-export default function SignedInView() {
+  const handleCreateBoard = (event: React.FormEvent) => {
+    event.preventDefault();
+  };
+
   return (
     <div className="relative flex flex-col min-h-screen bg-gradient-to-br from-teal-500 via-blue-600 to-teal-500 dark:from-gray-900 dark:via-gray-800 dark:to-purple-800 overflow-hidden">
       {/* Animated Background for Light Mode */}
@@ -26,7 +33,7 @@ export default function SignedInView() {
           </p>
 
           {/* Create Kanban Board Form */}
-          <form className="mt-8 flex flex-col space-y-6">
+          <form className="mt-8 flex flex-col space-y-6" onSubmit={handleCreateBoard}>
             <label htmlFor="board-name" className="block text-xl font-medium text-gray-700 dark:text-gray-300">
               Name Your Board
             </label>
@@ -40,7 +47,7 @@ export default function SignedInView() {
               type="submit"
               className="w-full rounded-lg bg-gradient-to-r from-teal-500 to-blue-600 px-6 py-3 text-lg font-semibold text-white shadow-lg transition-all transform hover:scale-105 hover:from-teal-600 hover:to-blue-700 focus:outline-none focus:ring-4 focus:ring-teal-300 dark:focus:ring-teal-500"
             >
-              Create Kanban Board
+              <Link href="pages/Board">Create Kanban Board</Link>
             </button>
           </form>
         </div>

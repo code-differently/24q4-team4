@@ -51,12 +51,14 @@ export default function HomePage() {
               placeholder="e.g., My First Board"
               className="w-full rounded-lg border-2 border-gray-300 p-4 text-gray-800 shadow-sm focus:ring-4 focus:ring-teal-400 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100"
             />
-            <button
-              type="submit"
-              className="w-full rounded-lg bg-gradient-to-r from-teal-500 to-blue-600 px-6 py-3 text-lg font-semibold text-white shadow-lg transition-all transform hover:scale-105 hover:from-teal-600 hover:to-blue-700 focus:outline-none focus:ring-4 focus:ring-teal-300 dark:focus:ring-teal-500"
-            >
-              <Link href={`pages/Board?q=${encodeURIComponent(boardName)}`}>Create Kanban Board</Link>
-            </button>
+            <Link href={`pages/Board?q=${encodeURIComponent(boardName)}`}>
+              <button
+                type="submit"
+                className="w-full rounded-lg bg-gradient-to-r from-teal-500 to-blue-600 px-6 py-3 text-lg font-semibold text-white shadow-lg transition-all transform hover:scale-105 hover:from-teal-600 hover:to-blue-700 focus:outline-none focus:ring-4 focus:ring-teal-300 dark:focus:ring-teal-500"
+              >
+                Create Kanban Board
+              </button>
+            </Link>
           </form>
         </div>
       </main>

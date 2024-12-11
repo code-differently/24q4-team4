@@ -10,9 +10,9 @@ module.exports = {
     "^@/(.*)$": "<rootDir>/src/$1",
   },
 
-  // Transform files using babel-jest for JavaScript/TypeScript
+  // Transform files using @swc/jest for JavaScript/TypeScript
   transform: {
-    "^.+\\.(ts|tsx|js|jsx)$": "babel-jest",
+    "^.+\\.(ts|tsx|js|jsx)$": "@swc/jest",
   },
 
   // Match test files in various directories

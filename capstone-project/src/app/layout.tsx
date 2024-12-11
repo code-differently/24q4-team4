@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import  ClientWrapper  from "./components/ClerkAuthenticator/ClientWrapper/ClientWrapper"; // Adjust the path as needed
 import { ClerkProvider, RedirectToSignIn, SignedIn, SignedOut } from "@clerk/nextjs";
+import SignIn from "./pages/sign-in/page";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${geistSans.variable} bg-gray-50`}>
         <SignedIn>{children}</SignedIn>
         <SignedOut>
-          <RedirectToSignIn signInFallbackRedirectUrl={"pages/sign-in"}/>
+          <SignIn />
         </SignedOut>
       </body>
     </html>

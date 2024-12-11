@@ -1,5 +1,5 @@
 import HomePage from "@/app/components/HomePage";
-import { ClerkProvider, SignedOut, SignInButton, SignedIn, RedirectToSignIn } from "@clerk/nextjs";
+import { ClerkProvider, SignedOut, SignInButton, SignedIn, RedirectToSignIn, SignUpButton } from "@clerk/nextjs";
 import Link from "next/link";
 
 const SignIn = () => {
@@ -27,16 +27,19 @@ const SignIn = () => {
                 </p>
 
                 <div className="mt-8 flex flex-col space-y-4">
+                <SignUpButton>
+                    <Link href={'/pages/sign-in'} >
+                        <button className="w-full rounded-lg bg-teal-500 px-6 py-3 text-lg font-semibold text-white shadow-md transition-transform transform hover:scale-105 hover:bg-teal-600 focus:outline-none focus:ring-4 focus:ring-teal-300 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-400">
+                        Sign Up
+                        </button>
+                    </Link>
+                </SignUpButton>
                 <SignInButton>
-                    <button className="w-full rounded-lg bg-teal-500 px-6 py-3 text-lg font-semibold text-white shadow-md transition-transform transform hover:scale-105 hover:bg-teal-600 focus:outline-none focus:ring-4 focus:ring-teal-300 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-400">
-                    Sign Up
-                    </button>
-                </SignInButton>
-                <SignInButton>
-                    <button className="w-full rounded-lg bg-blue-600 px-6 py-3 text-lg font-semibold text-white shadow-md transition-transform transform hover:scale-105 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-400">
-                    Sign In
-                    </button>
-                    <RedirectToSignIn redirectUrl={"/"}/>
+                    <Link href={'/pages/sign-in'}>
+                        <button className="w-full rounded-lg bg-blue-600 px-6 py-3 text-lg font-semibold text-white shadow-md transition-transform transform hover:scale-105 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-400">
+                        Sign In
+                        </button>
+                    </Link>
                 </SignInButton>
                 </div>
             </div>

@@ -1,22 +1,45 @@
 module.exports = {
-    testEnvironment: "jsdom",
-    setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
-    moduleNameMapper: {
-      "^@/(.*)$": "<rootDir>/src/$1",
-    },
-    transform: {
-      "^.+\\.tsx?$": "ts-jest",
-    },
-    // Add the following options:
-    collectCoverage: true, // Ensures Jest always collects coverage
-    collectCoverageFrom: [
-      "src/**/*.{js,jsx,ts,tsx}", // Specify files to include
-      "!src/**/index.ts",         // Optionally exclude files
-    ],
-    coverageDirectory: "coverage", // Where coverage reports will be stored
-    coverageReporters: [
-      "text-summary", // Outputs summary to console
-      "lcov",         // Generates lcov info for external tools
-      "html",         // Creates a human-readable HTML report
-    ],
-  };
+  // Define the test environment
+  testEnvironment: "jsdom",
+
+  // Setup files to run after the environment is set up
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+
+  // Map module imports for easier path resolution
+  moduleNameMapper: {
+    "^@/(.*)$": "<rootDir>/src/$1",
+  },
+
+  // Transform files using babel-jest for JavaScript/TypeScript
+  transform: {
+    "^.+\\.(ts|tsx|js|jsx)$": "babel-jest",
+  },
+
+  // Match test files in various directories
+  testMatch: [
+    "**/Test/**/*.[jt]s?(x)",
+    "**/__tests__/**/*.[jt]s?(x)",
+    "**/?(*.)+(spec|test).[tj]s?(x)",
+  ],
+
+  // Collect coverage information
+  collectCoverage: true,
+  collectCoverageFrom: [
+    "src/**/*.{js,jsx,ts,tsx}",
+    "!src/**/index.{js,ts}",
+    "!src/**/*.d.ts",
+    "!src/**/*.{stories,story}.{js,jsx,ts,tsx}",
+  ],
+
+  // Specify where to store coverage reports
+  coverageDirectory: "coverage",
+
+  // Define coverage report formats
+  coverageReporters: ["text-summary", "lcov", "html"],
+
+  // Optional: Increase timeout for slower tests
+  testTimeout: 30000,
+
+  // Optional: Configure verbose output
+  verbose: true,
+};

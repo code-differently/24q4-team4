@@ -31,6 +31,8 @@ module.exports = {
     "!src/**/*.{stories,story}.{js,jsx,ts,tsx}",
   ],
 
+  testEnvironment: "node",
+
   // Specify where to store coverage reports
   coverageDirectory: "coverage",
 

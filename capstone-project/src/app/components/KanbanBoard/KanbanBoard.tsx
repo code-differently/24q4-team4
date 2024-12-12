@@ -41,11 +41,14 @@ const KanbanBoard: React.FC<KanbanBoardProps> = ({ title }) => {
     const fetchBoards = async () => {
       try {
         const response = await fetch("/api/boards");
-        const data = await response.json();
 
-        if (data.success) {
-          setColumns(data.data);
+        // Check if the response is OK before parsing as JSON
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
         }
+
+        const data = await response.json();
+        console.log("Boards:", data);
       } catch (error) {
         console.error("Error fetching boards:", error);
       }

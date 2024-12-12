@@ -1,12 +1,9 @@
-'use client';
+"use client";
 
-import { UserButton } from '@clerk/nextjs';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import { useState } from 'react';
+import { UserButton } from "@clerk/nextjs";
+import Link from "next/link";
+import { useState } from "react";
 export default function HomePage() {
-  const router = useRouter();
-
   const handleCreateBoard = (event: React.FormEvent) => {
     event.preventDefault();
   };
@@ -33,19 +30,29 @@ export default function HomePage() {
         <div className="w-full max-w-2xl p-10 bg-white rounded-2xl shadow-xl dark:bg-gray-800">
           {/* Welcome Message */}
           <h2 className="text-4xl font-bold text-gray-800 dark:text-gray-100">
-            Welcome to <span className="text-teal-500 dark:text-teal-400">The Kanban App</span>
+            Welcome to{" "}
+            <span className="text-teal-500 dark:text-teal-400">
+              The Kanban App
+            </span>
           </h2>
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
-            Ready to build your first Kanban board? Start organizing your tasks and projects with ease!
+            Ready to build your first Kanban board? Start organizing your tasks
+            and projects with ease!
           </p>
 
           {/* Create Kanban Board Form */}
-          <form className="mt-8 flex flex-col space-y-6" onSubmit={handleCreateBoard}>
-            <label htmlFor="board-name" className="block text-xl font-medium text-gray-700 dark:text-gray-300">
+          <form
+            className="mt-8 flex flex-col space-y-6"
+            onSubmit={handleCreateBoard}
+          >
+            <label
+              htmlFor="board-name"
+              className="block text-xl font-medium text-gray-700 dark:text-gray-300"
+            >
               Name Your Board
             </label>
             <input
-            onChange={handleOnChange}
+              onChange={handleOnChange}
               id="board-name"
               type="text"
               placeholder="e.g., My First Board"

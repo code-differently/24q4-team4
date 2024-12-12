@@ -3,7 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { getAuth } from "@clerk/nextjs/server";
 
 // Helper function for JSON responses
-const response = (data: any, status: number = 200) =>
+const response = (data: unknown, status: number = 200) =>
   NextResponse.json(data, { status });
 
 // Type definition for creating a board

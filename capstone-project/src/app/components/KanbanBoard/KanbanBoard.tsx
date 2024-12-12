@@ -141,7 +141,6 @@ const KanbanBoard: React.FC<KanbanBoardProps> = ({ title }) => {
               {column.cards.map((card) => (
                 <KanbanCard
                   key={card.id}
-                  id={card.id}
                   title={card.title}
                   description={card.description}
                   dueDate={card.dueDate}

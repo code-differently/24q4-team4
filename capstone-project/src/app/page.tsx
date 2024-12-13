@@ -2,7 +2,7 @@
 
 import React from "react";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import HomePage from "./components/HomePage";
+import HomePage from "./pages/HomePage";
 
 const Page: React.FC = () => {
   return (

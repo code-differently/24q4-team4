@@ -1,7 +1,7 @@
 "use client";
 
 import { SignedOut, SignInButton, SignedIn } from "@clerk/nextjs";
-import SignedInView from "../../../components/HomePage";
+import SignedInView from "../../../pages/HomePage";
 
 export default function ClientWrapper() {
   return (

@@ -25,7 +25,7 @@ const KanbanPage = () => {
 
       {/* Kanban Board */}
       <main>
-        <KanbanBoard id="kanban-board" title={title} />
+        <KanbanBoard title={title} />
       </main>
     </div>
   );

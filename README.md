@@ -16,7 +16,7 @@ Development will be conducted in Visual Studio Code, utilizing TypeScript Execut
 
 Inefficient workflow management frequently leads to confusion, miscommunication, and project delays within teams. When tasks are scattered across multiple platforms or inadequately organized, it becomes hard to see what needs to be done and who is responsible for each task. This creates an environment ripe for bottlenecks, situations where the workflow is restricted or slowed down, causing delays and negative effects to the team's overall efficiency. Therefore, having a clear and organized workflow management system is crucial for improving teamwork and ensuring projects are finished on time.
 
-Our Kanban app is a powerful task management tool designed to streamline workflows and boost productivity. With an intuitive interface, users can organize tasks into customizable columns that represent project stages such as To Do, In Progress, and Completed. Each task card includes key details like title, description, and due dates. Ideal for individuals, the app combines simplicity and flexibility to ensure effective project management.
+Our Kanban app is a powerful task management tool designed to streamline workflows and boost productivity. With an intuitive interface, users can organize tasks into customizable columns that represent project stages such as **To Do**, **In Progress**, and **Completed**. Each task card includes key details like title, description, and due dates. Ideal for individuals, the app combines simplicity and flexibility to ensure effective project management.
 
 ## Demo
 
@@ -64,8 +64,11 @@ To run the Kanban app locally, follow these steps:
 6. Set Up the Database:
     
     > brew services start postgresql
+    
     > createdb DATABASE_NAME
+    
     > pnpm prisma migrate dev --name init
+    
     > pnpm prisma generate
 
 7. Start the development server:
@@ -102,18 +105,18 @@ To run the Kanban app locally, follow these steps:
 
 ## Credits
 
-- Animations: Created using Rive
-- Authenticator API: Implemented using Clerk.
-- Database Management API: Powered by Prisma.
-- Deployment: Hosted on Vercel.
-- Framework: Built with Next.js, styled with Tailwind CSS, and written in TypeScript.
+- Animations: Created using **Rive**.
+- Authenticator API: Implemented using **Clerk**.
+- Database Management API: Powered by **Prisma**.
+- Deployment: Hosted on **Vercel**.
+- Framework: Built with **Next.js**, styled with **Tailwind CSS**, and written in **TypeScript**.
 
 ## Project Requirements
 
 -  All work must be submitted in our team's assigned GitHub repository.
 -  The assignment can be completed in **ANY** language.
 -  Must have a working front-end that interacts with a back-end web service to retrieve and persist data.
--  App must be publicly accessible. It is recommended that we use Vercel or Fly.io to deploy apps.
+-  App must be publicly accessible. It is recommended that we use **Vercel** or Fly.io to deploy apps.
 -  The system must incorporate one third-party API.
 -  Write unit tests achieving **70% code coverage** (using JaCoCo for Java or Jest for Typescript).
 -  Must include an integration test for each user story that demonstrates how our code implements the desired feature.

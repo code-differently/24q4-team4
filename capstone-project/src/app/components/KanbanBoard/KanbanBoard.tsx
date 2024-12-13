@@ -71,7 +71,7 @@ const KanbanBoard: React.FC<KanbanBoardProps> = ({ title }) => {
     if (!newTask.title || !newTask.description) return;
 
     try {
-      const response = await fetch("/api/cards", {
+      const response = await fetch("/api/boards", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

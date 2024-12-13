@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import { GET, POST, PUT, DELETE } from "../PrismaDatabase/boards/route";
+import { GET, POST, PUT, DELETE } from "@/app/api/boards/route";
 import { prisma } from "@/lib/prisma";
 import { getAuth } from "@clerk/nextjs/server";
 
@@ -7,17 +7,18 @@ global.Request = class {
   url: string;
   method: string;
   headers: Headers;
-  body: any;
+  body: string | null;
 
   constructor(input: string, init: RequestInit = {}) {
     this.url = input;
     this.method = init.method || "GET";
     this.headers = new Headers(init.headers);
-    this.body = init.body;
+    this.body = init.body ? String(init.body) : null;
   }
 
-  json = async () => JSON.parse(this.body as string);
-} as any;
+  json = async () => (this.body ? JSON.parse(this.body) : {});
+} as unknown as typeof Request;
+
 // Mock implementations
 jest.mock("@/lib/prisma", () => ({
   prisma: {
@@ -143,10 +144,6 @@ describe("Boards API Routes", () => {
       method: "PUT",
       body: requestBody,
     });
-
-    // Log to see if userId is correctly mocked
-    const { userId } = await getAuth(request);
-    console.log("User ID from getAuth in PUT test:", userId);
 
     const response = await PUT(request);
     const data = await response.json();

@@ -1,40 +1,39 @@
 // prisma/schema.prisma
 
 datasource db {
-  provider = "postgresql"  // Change this to your database provider (e.g., PostgreSQL, MySQL, SQLite)
-  url      = env("DATABASE_URL")  // Connection URL from your .env file
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 generator client {
-  provider = "prisma-client-js"  // This generates the Prisma Client
+  provider = "prisma-client-js"
 }
 
-// Define models for Boards, Lists, and Cards
 model Board {
-  id        Int      @id @default(autoincrement())  // Unique ID for each board
-  title     String   // Title of the board
-  userId    String   // Clerk user ID
-  lists     List[]   // Relationship with Lists (a board has many lists)
-  createdAt DateTime @default(now())  // Timestamp when the board was created
-  updatedAt DateTime @updatedAt  // Automatically updated timestamp
+  id        Int      @id @default(autoincrement())
+  title     String
+  userId    String
+  lists     List[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model List {
-  id        Int      @id @default(autoincrement())  // Unique ID for each list
-  title     String   // Title of the list
-  boardId   Int      // Foreign key to Board
-  board     Board    @relation(fields: [boardId], references: [id])  // One-to-many relationship with Board
-  cards     Card[]   // Relationship with Cards (a list has many cards)
+  id        Int      @id @default(autoincrement())
+  title     String
+  boardId   Int
+  board     Board    @relation(fields: [boardId], references: [id])
+  cards     Card[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model Card {
-  id        Int      @id @default(autoincrement())  // Unique ID for each card
-  title     String   // Title of the card (task title)
-  content   String?  // Optional content for the card (e.g., description)
-  listId    Int      // Foreign key to List
-  list      List     @relation(fields: [listId], references: [id])  // One-to-many relationship with List
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String?
+  listId    Int
+  list      List     @relation(fields: [listId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
